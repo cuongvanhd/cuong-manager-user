@@ -1,5 +1,6 @@
 package com.springapp.controller;
 
+import com.springapp.command.LoginCommand;
 import com.springapp.entities.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +16,12 @@ public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView setUpForm() {
-        return new ModelAndView("login", "command", new User());
+        return new ModelAndView("login", "command", new LoginCommand());
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String processForm() {
+
         return "redirect:/user/listuser";
     }
 }

@@ -1,6 +1,10 @@
 package com.springapp.entities;
 
+import com.springapp.utils.ValidateProperties;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 /**
@@ -18,24 +22,34 @@ public class User {
     private int groupId;
 
     @Column
+    @NotBlank(message = ValidateProperties.LOGIN_NAME_NULL)
     private String loginName;
 
     @Column
+    @NotBlank(message = ValidateProperties.PASSWORD_NULL)
     private String password;
 
     @Column
+    @NotBlank(message = ValidateProperties.FULL_NAME_NULL)
     private String fullName;
 
     @Column
+    @NotBlank(message = ValidateProperties.FULL_NAME_KANA_NULL)
     private String fullNameKata;
 
     @Column
+    @NotBlank(message = ValidateProperties.EMAIL_NULL)
+    @Pattern(regexp = ValidateProperties.EMAIL_PATTERN, message = ValidateProperties.EMAIL_ERROR)
     private String email;
 
     @Column
+    @NotBlank(message = ValidateProperties.TEL_NULL)
+    @Pattern(regexp = ValidateProperties.TEL_PATTERN, message = ValidateProperties.TEL_ERROR)
     private String tel;
 
     @Column
+    @NotBlank(message = ValidateProperties.BIRTHDAY_NULL)
+    @Pattern(message = ValidateProperties.BIRTHDAY_ERROR, regexp = ValidateProperties.BIRTHDAY_PATTERN)
     private Date birthday;
 
     public int getUserId() {
