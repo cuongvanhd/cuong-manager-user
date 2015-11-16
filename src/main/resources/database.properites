@@ -1,6 +1,0 @@
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost/dbmanageuser_nguyenvancuong
-spring.datasource.username=root
-spring.datasource.password=root
-
-

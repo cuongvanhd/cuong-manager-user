@@ -28,6 +28,11 @@
                         <h4><strong>LOGIN</strong></h4>
                     </div>
                 </div>
+                <!-- Start display error login -->
+                <div class="text-center">
+                    <label class="error"></label>
+                </div>
+                <!-- End display error login -->
                 <div class="portlet-body">
                     <!-- Start create form by Spring tag form -->
                     <form:form id="loginForm" action="/login" method="post">
@@ -44,7 +49,7 @@
                                 <form:input path="password" cssClass="form-control" type="password" placeholder="Password"></form:input>
                             </div>
                             <form:button type="submit" class="btn btn-lg btn-block btn-square btn-success" id="btnLogin">Login</form:button>
-                            <form:button type="button" class="btn btn-lg btn-block btn-square btn-success" id="btnRegister">Register</form:button>
+                            <%--<form:button type="button" class="btn btn-lg btn-block btn-square btn-success" id="btnRegister">Register</form:button>--%>
                         </fieldset>
                     <%--</form>--%>
                     </form:form>

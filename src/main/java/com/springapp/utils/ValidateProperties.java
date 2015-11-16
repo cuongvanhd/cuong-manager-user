@@ -23,6 +23,7 @@ public class ValidateProperties {
     // FullNameKana
     public static final String FULL_NAME_KANA_NULL = "Please input full name kana!";
     public static final String FULL_NAME_BYTE = "Full name kana has to 2 bit character. (ex: ????????)";
+    public static final String FULL_NAME_KANA_PATTERN = "([É@-Éñ]|ÅE|Å[|\\p{ASCII})*";
 
     // Telephone
     public static final String TEL_NULL = "Please provide telephone number! (ex: 090 4564 4534)";

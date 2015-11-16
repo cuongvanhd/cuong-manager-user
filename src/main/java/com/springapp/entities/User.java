@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,42 +13,45 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tbl_user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private int userId;
 
     @ManyToOne
-    private int groupId;
+    @JoinColumn(name = "group_id")
+    private Group mainGroup;
 
-    @Column
+    @Column(name = "login_name")
     @NotBlank(message = ValidateProperties.LOGIN_NAME_NULL)
     private String loginName;
 
-    @Column
+    @Column(name = "password")
     @NotBlank(message = ValidateProperties.PASSWORD_NULL)
     private String password;
 
-    @Column
+    @Column(name = "full_name")
     @NotBlank(message = ValidateProperties.FULL_NAME_NULL)
     private String fullName;
 
-    @Column
+    @Column(name = "full_name_kata")
     @NotBlank(message = ValidateProperties.FULL_NAME_KANA_NULL)
+    @Pattern(regexp = ValidateProperties.FULL_NAME_KANA_PATTERN, message = ValidateProperties.FULL_NAME_BYTE)
     private String fullNameKata;
 
-    @Column
+    @Column(name = "email")
     @NotBlank(message = ValidateProperties.EMAIL_NULL)
     @Pattern(regexp = ValidateProperties.EMAIL_PATTERN, message = ValidateProperties.EMAIL_ERROR)
     private String email;
 
-    @Column
+    @Column(name = "tel")
     @NotBlank(message = ValidateProperties.TEL_NULL)
     @Pattern(regexp = ValidateProperties.TEL_PATTERN, message = ValidateProperties.TEL_ERROR)
     private String tel;
 
-    @Column
+    @Column(name = "birthday")
     @NotBlank(message = ValidateProperties.BIRTHDAY_NULL)
     @Pattern(message = ValidateProperties.BIRTHDAY_ERROR, regexp = ValidateProperties.BIRTHDAY_PATTERN)
     private Date birthday;
@@ -60,12 +64,12 @@ public class User {
         this.userId = userId;
     }
 
-    public int getGroupId() {
-        return groupId;
+    public Group getMainGroup() {
+        return mainGroup;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
+    public void setMainGroup(Group mainGroup) {
+        this.mainGroup = mainGroup;
     }
 
     public String getLoginName() {

@@ -1,9 +1,11 @@
 package com.springapp.command;
 
+import java.io.Serializable;
+
 /**
- * Created by Cuong on 2015/11/13.
+ * Created by Cuong on 2015/11/16.
  */
-public class LoginCommand {
+public class LoginCommand implements Serializable {
 
     private String loginName;
     private String password;
