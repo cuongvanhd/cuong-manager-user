@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/login")
 public class LoginController {
 
-//    @Autowired
-//    private UserService userService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String setUpForm(Model model) {

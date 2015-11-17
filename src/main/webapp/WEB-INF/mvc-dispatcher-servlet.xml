@@ -10,12 +10,14 @@
 
     <mvc:resources mapping="/web-resources/**" location="/resources/"/>
 
+    <!--<mvc:resources mapping="/public/**" location="/public/plugins"/>-->
+    <mvc:resources mapping="/public/**" location="/public/bootstrap"/>
+    <mvc:annotation-driven/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:resources mapping="/public/**" location="/public/bootstrap"/>
-    <mvc:resources mapping="/public/**" location="/public/plugins"/>
-    <mvc:annotation-driven/>
+
 </beans>

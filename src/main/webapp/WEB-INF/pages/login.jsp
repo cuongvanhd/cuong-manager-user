@@ -40,13 +40,13 @@
                         <fieldset>
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <%--<input type="text" placeholder="Login Name" class="form-control">--%>
-                                <form:input path="loginName" cssClass="form-control" type="text" placeholder="LoginName"></form:input>
+                                <input type="text" placeholder="Login Name" class="form-control">
+                                <%--<form:input path="loginName" Class="form-control" type="text" placeholder="LoginName"></form:input>--%>
                             </div>
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <%--<input type="password" placeholder="Password" class="form-control">--%>
-                                <form:input path="password" cssClass="form-control" type="password" placeholder="Password"></form:input>
+                                <form:input path="password" Class="form-control" type="password" placeholder="Password"></form:input>
                             </div>
                             <form:button type="submit" class="btn btn-lg btn-block btn-square btn-success" id="btnLogin">Login</form:button>
                             <%--<form:button type="button" class="btn btn-lg btn-block btn-square btn-success" id="btnRegister">Register</form:button>--%>
