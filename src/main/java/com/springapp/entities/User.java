@@ -20,7 +20,7 @@ public class User implements Serializable {
     @Column(name = "user_id")
     private int userId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group mainGroup;
 

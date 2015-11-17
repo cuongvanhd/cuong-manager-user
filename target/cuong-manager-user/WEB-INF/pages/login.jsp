@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+
 <html>
 <head>
     <title>Login</title>
@@ -30,7 +32,7 @@
                 </div>
                 <!-- Start display error login -->
                 <div class="text-center">
-                    <label class="error"></label>
+                    <label class="error">${error}</label>
                 </div>
                 <!-- End display error login -->
                 <div class="portlet-body">
@@ -40,8 +42,8 @@
                         <fieldset>
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" placeholder="Login Name" class="form-control">
-                                <%--<form:input path="loginName" Class="form-control" type="text" placeholder="LoginName"></form:input>--%>
+                                <%--<input type="text" placeholder="Login Name" class="form-control">--%>
+                                <form:input path="loginName" Class="form-control" type="text" placeholder="LoginName"></form:input>
                             </div>
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
