@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.springapp.controller.AppTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.181 sec <<< FAILURE!
-simple(com.springapp.controller.AppTests)  Time elapsed: 0.005 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.247 sec <<< FAILURE!
+simple(com.springapp.controller.AppTests)  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: javax/servlet/SessionCookieConfig
 	at org.springframework.test.context.web.AbstractGenericWebContextLoader.configureWebResources(AbstractGenericWebContextLoader.java:199)
 	at org.springframework.test.context.web.AbstractGenericWebContextLoader.loadContext(AbstractGenericWebContextLoader.java:126)
