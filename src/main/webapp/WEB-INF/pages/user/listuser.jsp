@@ -35,11 +35,16 @@
                     <thead>
                     <tr>
                         <th style="width:2%;">ID</th>
+                        <th>GROUP</th>
                         <th>FULL_NAME</th>
                         <th>FULL_NAME_KANA</th>
                         <th>EMAIL</th>
                         <th>TEL</th>
                         <th>BIRTHDAY</th>
+                        <th>NAME_LEVEL</th>
+                        <th>START_DATE</th>
+                        <th>END_DATE</th>
+                        <th>TOTAL</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
