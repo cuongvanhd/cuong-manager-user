@@ -1,6 +1,7 @@
 package com.springapp.services;
 
-import java.security.acl.Group;
+import com.springapp.entities.Group;
+
 import java.util.List;
 
 /**

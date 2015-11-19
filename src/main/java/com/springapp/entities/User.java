@@ -56,7 +56,8 @@ public class User implements Serializable {
     @Pattern(message = ValidateProperties.BIRTHDAY_ERROR, regexp = ValidateProperties.BIRTHDAY_PATTERN)
     private Date birthday;
 
-    @OneToOne(targetEntity = UserDetailJapanese.class)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     @JoinTable(
             name = "tbl_detail_user_japan",
             joinColumns = @JoinColumn(name = "user_id")
