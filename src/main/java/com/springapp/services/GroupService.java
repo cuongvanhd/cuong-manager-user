@@ -14,5 +14,5 @@ public interface GroupService {
      *
      * @return list group
      */
-    List<Group> getAllGroup();
+    List<Group> getAllGroups();
 }

@@ -1,7 +1,8 @@
 package com.springapp.controller;
 
 import com.springapp.command.LoginCommand;
-import com.springapp.entities.User;
+import com.springapp.entities.UserDetailJapanese;
+import com.springapp.services.UserDetailJapaneseService;
 import com.springapp.services.UserService;
 import com.springapp.utils.ValidateProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -25,6 +25,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserDetailJapaneseService userDetailJapaneseService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String setUpForm(Model model) {
@@ -50,15 +53,18 @@ public class LoginController {
             return "login";
         }
 
-        List<User> users = userService.getAllUserInfor();
+        List<UserDetailJapanese> users = userService.getAllUserInfor();
         System.out.println(users.size());
-        for (User user : users) {
-            System.out.println(user.getFullName());
-            System.out.println(user.getMainGroup().getGroupName());
-//            System.out.println(user.getUserDetailJapanes().getJapanese().getCodeLevel());
-//            System.out.println(user.getUserDetailJapanes().getTotal());
-
+        for (UserDetailJapanese user : users) {
+            System.out.println(user.getUser().getFullName());
+            System.out.println(user.getUser().getMainGroup().getGroupName());
+            System.out.println();
         }
+//        List<UserDetailJapanese> userDetailJapaneses = userDetailJapaneseService.getAllDetailUser();
+//        for (UserDetailJapanese userDetailJapanese: userDetailJapaneses) {
+////            System.out.println(userDetailJapanese.getJapanese().getNameLevel());
+//            System.out.println(userDetailJapanese.getUser().getMainGroup().getGroupName());
+//        }
 
         return "redirect:/user/listuser";
     }

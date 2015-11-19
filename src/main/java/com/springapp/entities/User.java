@@ -56,13 +56,9 @@ public class User implements Serializable {
     @Pattern(message = ValidateProperties.BIRTHDAY_ERROR, regexp = ValidateProperties.BIRTHDAY_PATTERN)
     private Date birthday;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    @JoinTable(
-            name = "tbl_detail_user_japan",
-            joinColumns = @JoinColumn(name = "user_id")
-    )
-    private UserDetailJapanese userDetailJapaneses;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private UserDetailJapanese userDetailJapanese;
 
     public int getUserId() {
         return userId;
@@ -136,11 +132,11 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public UserDetailJapanese getUserDetailJapanes() {
-        return userDetailJapaneses;
-    }
-
-    public void setUserDetailJapanes(UserDetailJapanese userDetailJapanes) {
-        this.userDetailJapaneses = userDetailJapanes;
-    }
+//    public UserDetailJapanese getUserDetailJapanese() {
+//        return userDetailJapanese;
+//    }
+//
+//    public void setUserDetailJapanese(UserDetailJapanese userDetailJapanese) {
+//        this.userDetailJapanese = userDetailJapanese;
+//    }
 }

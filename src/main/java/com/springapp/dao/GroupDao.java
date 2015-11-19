@@ -1,6 +1,8 @@
 package com.springapp.dao;
 
-import java.security.acl.Group;
+
+import com.springapp.entities.Group;
+
 import java.util.List;
 
 /**
@@ -14,5 +16,7 @@ public interface GroupDao extends BaseDao<Group, Integer> {
      * @return list group
      */
     List<Group> getAllGroup();
+
+
 
 }

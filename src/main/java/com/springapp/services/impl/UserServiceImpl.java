@@ -2,6 +2,7 @@ package com.springapp.services.impl;
 
 import com.springapp.dao.UserDao;
 import com.springapp.entities.User;
+import com.springapp.entities.UserDetailJapanese;
 import com.springapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUserInfor() {
+    public List<UserDetailJapanese> getAllUserInfor() {
         return userDao.getAllUserInfor();
     }
 }

@@ -19,7 +19,7 @@ public class GroupServiceImpl implements GroupService {
     private GroupDao groupDao;
 
     @Transactional
-    public List<Group> getAllGroup() {
+    public List<Group> getAllGroups() {
         return groupDao.getAllGroup();
     }
 }

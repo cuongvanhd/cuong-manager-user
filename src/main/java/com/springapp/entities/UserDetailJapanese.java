@@ -16,11 +16,11 @@ public class UserDetailJapanese implements Serializable {
     @Column(name = "detail_user_japan_id")
     private int detailUserJapanId;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "code_level")
     private Japanese japanese;
 
