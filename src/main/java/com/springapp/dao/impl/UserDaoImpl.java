@@ -45,16 +45,18 @@ public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
     public List<UserDetailJapanese> getAllUserInfor() {
 
         StringBuilder hql = new StringBuilder();
-        hql.append(" FROM UserDetailJapanese d ");
-        hql.append(" INNER JOINT FETCH d.japanese j ");
-        hql.append(" RIGHT JOINT FETCH j.user u");
-        hql.append(" INNER JOINT FETCH u.mainGroup g ");
+        hql.append(" from UserDetailJapanese as d ");
+        hql.append(" inner join d.japanese j ");
+        hql.append(" right join d.user u  ");
+        hql.append(" inner join u.mainGroup mainGroup  ");
 //        hql.append(" LEFT JOIN FETCH k.userDetailJapanese d ");
 //        hql.append(" INNER JOINT FETCH d.Japanese m ");
 
         System.out.println(hql.toString());
 
         Query query = getSession().createQuery(hql.toString());
+
+        List<Object> objects = query.list();
 
         return (List<UserDetailJapanese>) query.list();
     }

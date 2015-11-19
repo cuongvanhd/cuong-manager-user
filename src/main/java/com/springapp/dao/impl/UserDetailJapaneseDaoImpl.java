@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +23,20 @@ public class UserDetailJapaneseDaoImpl extends BaseDaoImpl<UserDetailJapanese, I
     @Transactional(propagation = Propagation.REQUIRED)
     public List<UserDetailJapanese> getAllDetailUser() {
 
+        List<UserDetailJapanese> userDetailJapaneses = new ArrayList<UserDetailJapanese>();
+
         StringBuilder hql = new StringBuilder();
-        hql.append(" FROM UserDetailJapanese as d ");
-//        hql.append(" RIGHT JOINT d.user as u ");
-//        hql.append(" INNER JOINT d.japanese  ");
+        hql.append(" from UserDetailJapanese as d ");
+        hql.append(" inner join d.japanese  ");
         Query query = getSession().createQuery(hql.toString());
-        return query.list();
+
+        List<Object> objects = query.list();
+
+        for (Object object : objects) {
+            userDetailJapaneses.add((UserDetailJapanese) object);
+        }
+
+        return userDetailJapaneses;
+
     }
 }

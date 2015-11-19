@@ -60,10 +60,11 @@ public class LoginController {
             System.out.println(user.getUser().getMainGroup().getGroupName());
             System.out.println();
         }
+
 //        List<UserDetailJapanese> userDetailJapaneses = userDetailJapaneseService.getAllDetailUser();
 //        for (UserDetailJapanese userDetailJapanese: userDetailJapaneses) {
-////            System.out.println(userDetailJapanese.getJapanese().getNameLevel());
-//            System.out.println(userDetailJapanese.getUser().getMainGroup().getGroupName());
+//            System.out.println(userDetailJapanese.getJapanese().getNameLevel());
+////            System.out.println(userDetailJapanese.getUser().getMainGroup().getGroupName());
 //        }
 
         return "redirect:/user/listuser";
