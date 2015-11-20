@@ -7,7 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>List User</title>
@@ -35,7 +36,7 @@
                     <thead>
                     <tr>
                         <th style="width:2%;">ID</th>
-                        <th>GROUP</th>
+                        <th>GROUP_NAME</th>
                         <th>FULL_NAME</th>
                         <th>FULL_NAME_KANA</th>
                         <th>EMAIL</th>
@@ -47,7 +48,23 @@
                         <th>TOTAL</th>
                     </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    <c:forEach items="${users}" var="user">
+                        <tr>
+                            <td>${user.userId}</td>
+                            <td>${user.groupName}</td>
+                            <td>${user.fullName}</td>
+                            <td>${user.fullNameKata}</td>
+                            <td>${user.email}</td>
+                            <td>${user.tel}</td>
+                            <td><fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/></td>
+                            <td>${user.nameLevel}</td>
+                            <td><fmt:formatDate value="${user.startDate}" pattern="yyyy-MM-dd"/></td>
+                            <td><fmt:formatDate value="${user.endDate}" pattern="yyyy-MM-dd"/></td>
+                            <td>${user.total}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -33,6 +33,17 @@ public class UserDetailJapanese implements Serializable {
     @Column(name = "total")
     private int total;
 
+    public UserDetailJapanese() {
+    }
+
+    public UserDetailJapanese(User user, Japanese japanese, Date startDate, Date endDate, int total) {
+        this.user = user;
+        this.japanese = japanese;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.total = total;
+    }
+
     public int getDetailUserJapanId() {
         return detailUserJapanId;
     }

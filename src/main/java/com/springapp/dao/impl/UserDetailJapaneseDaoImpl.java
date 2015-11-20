@@ -30,11 +30,12 @@ public class UserDetailJapaneseDaoImpl extends BaseDaoImpl<UserDetailJapanese, I
         hql.append(" inner join d.japanese  ");
         Query query = getSession().createQuery(hql.toString());
 
-        List<Object> objects = query.list();
+        userDetailJapaneses = query.list();
+//        List<Object> objects = query.list();
 
-        for (Object object : objects) {
-            userDetailJapaneses.add((UserDetailJapanese) object);
-        }
+//        for (Object object : objects) {
+//            userDetailJapaneses.add((UserDetailJapanese) object);
+//        }
 
         return userDetailJapaneses;
 

@@ -1,5 +1,6 @@
 package com.springapp.services;
 
+import com.springapp.command.UserInforCommand;
 import com.springapp.entities.User;
 import com.springapp.entities.UserDetailJapanese;
 
@@ -32,5 +33,5 @@ public interface UserService {
      *
      * @return list user information
      */
-    List<UserDetailJapanese> getAllUserInfor();
+    List<UserInforCommand> getAllUserInfor();
 }

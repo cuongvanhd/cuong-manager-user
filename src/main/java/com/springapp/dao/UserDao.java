@@ -1,5 +1,6 @@
 package com.springapp.dao;
 
+import com.springapp.command.UserInforCommand;
 import com.springapp.entities.User;
 import com.springapp.entities.UserDetailJapanese;
 
@@ -23,6 +24,6 @@ public interface UserDao extends BaseDao<User, Integer> {
      *
      * @return list user information
      */
-    List<UserDetailJapanese> getAllUserInfor();
+    List<UserInforCommand> getAllUserInfor();
 
 }
