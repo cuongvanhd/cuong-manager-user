@@ -37,6 +37,11 @@
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.6" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.9.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.7" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.2.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.2.1.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
