@@ -27,12 +27,15 @@ public class UserController {
 
     @RequestMapping(value = "/listuser", method = RequestMethod.GET)
     public String showListUser(@PageableDefault(5) Pageable pageable, ModelMap model) {
-        List<UserInforCommand> users = userService.getAllUserInfor();
-        Page<UserInforCommand> userInforCommands = new PageImpl<UserInforCommand>(users, pageable, users.size());
+
+        int totalRecordUser = userService.getListUser().size();
+        List<UserInforCommand> userInforCommands = userService.getAllUserInfor(pageable);
+        Page<UserInforCommand> inforCommands = new PageImpl<UserInforCommand>(userInforCommands, pageable, totalRecordUser);
+        Pagination<UserInforCommand> pagination = new Pagination<UserInforCommand>(inforCommands);
 
         model.addAttribute("userInforCommands", userInforCommands);
         model.addAttribute("pageable", pageable);
-        model.addAttribute("pagination", new Pagination<UserInforCommand>(userInforCommands));
+        model.addAttribute("pagination", pagination);
         return "/user/listuser";
     }
 }

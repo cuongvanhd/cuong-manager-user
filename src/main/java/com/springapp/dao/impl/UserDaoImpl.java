@@ -4,6 +4,9 @@ import com.springapp.command.UserInforCommand;
 import com.springapp.dao.UserDao;
 import com.springapp.entities.User;
 import org.hibernate.Query;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,7 +48,7 @@ public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public List<UserInforCommand> getAllUserInfor() {
+    public List<UserInforCommand> getAllUserInfor(Pageable pageable) {
 
         List<UserInforCommand> userInforCommands = new ArrayList<UserInforCommand>();
         StringBuilder hql = new StringBuilder();
@@ -60,9 +63,14 @@ public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
         hql.append(" inner join u.mainGroup g  ");
 //        hql.append(" inner join d.japanese j  ");
         hql.append(" order by u.userId asc  ");
+//        hql.append(" limit " + pageable.getOffset() + ", " + pageable.getPageSize() + " ");
 
 //        System.out.println(hql.toString());
         Query query = getSession().createQuery(hql.toString());
+
+        // limit offset, pageSize in sql
+        query.setFirstResult(pageable.getOffset());
+        query.setMaxResults(pageable.getPageSize());
 
         List<Object> result = query.list();
 
@@ -97,4 +105,14 @@ public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
 
         return userInforCommands;
     }
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    public List<User> getListUser() {
+        StringBuilder hql = new StringBuilder();
+        hql.append(" from User user ");
+        hql.append(" left join fetch user.mainGroup mainGroup ");
+        Query query = getSession().createQuery(hql.toString());
+        return query.list();
+    }
+
 }

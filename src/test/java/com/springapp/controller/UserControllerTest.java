@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.ModelMap;
@@ -37,6 +38,9 @@ public class UserControllerTest extends TestCase {
     @Mock
     ModelMap model;
 
+    @Mock
+    Pageable pageable;
+
     @Before
     public void setUp() throws Exception {
         super.setUp();
@@ -50,13 +54,16 @@ public class UserControllerTest extends TestCase {
     @Test
     public void testShowListUser() throws Exception {
 
-        when(userService.getAllUserInfor()).thenReturn(anyList());
+        when(userService.getAllUserInfor(pageable)).thenReturn(anyList());
+        when(userService.getListUser()).thenReturn(anyList());
 
-        mockMvc.perform(get("/user/listuser"))
+        mockMvc.perform(get("/user/listuser").requestAttr("pageable", pageable))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("users"))
+                .andExpect(model().attributeExists("pageable"))
+                .andExpect(model().attributeExists("pagination"))
                 .andExpect(view().name("/user/listuser"));
 
-        verify(userService).getAllUserInfor();
+        verify(userService).getAllUserInfor(pageable);
     }
 }

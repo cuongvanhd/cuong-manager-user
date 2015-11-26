@@ -2,7 +2,8 @@ package com.springapp.dao;
 
 import com.springapp.command.UserInforCommand;
 import com.springapp.entities.User;
-import com.springapp.entities.UserDetailJapanese;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -24,6 +25,13 @@ public interface UserDao extends BaseDao<User, Integer> {
      *
      * @return list user information
      */
-    List<UserInforCommand> getAllUserInfor();
+    List<UserInforCommand> getAllUserInfor(Pageable pageable);
+
+    /**
+     * get list User
+     *
+     * @return list user
+     */
+    List<User> getListUser();
 
 }

@@ -49,21 +49,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <%--<c:forEach items="${userInforCommands}" var="user">--%>
-                        <%--<tr>--%>
-                            <%--<td>${user.userId}</td>--%>
-                            <%--<td>${user.groupName}</td>]--%>
-                            <%--<td>${user.fullName}</td>--%>
-                            <%--<td>${user.fullNameKata}</td>--%>
-                            <%--<td>${user.email}</td>--%>
-                            <%--<td>${user.tel}</td>--%>
-                            <%--<td><fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/></td>--%>
-                            <%--<td>${user.nameLevel}</td>--%>
-                            <%--<td><fmt:formatDate value="${user.startDate}" pattern="yyyy-MM-dd"/></td>--%>
-                            <%--<td><fmt:formatDate value="${user.endDate}" pattern="yyyy-MM-dd"/></td>--%>
-                            <%--<td>${user.total}</td>--%>
-                        <%--</tr>--%>
-                    <%--</c:forEach>--%>
+                    <c:forEach items="${userInforCommands}" var="user">
+                        <tr>
+                            <td>${user.userId}</td>
+                            <td>${user.groupName}</td>
+                            <td>${user.fullName}</td>
+                            <td>${user.fullNameKata}</td>
+                            <td>${user.email}</td>
+                            <td>${user.tel}</td>
+                            <td><fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/></td>
+                            <td>${user.nameLevel}</td>
+                            <td><fmt:formatDate value="${user.startDate}" pattern="yyyy-MM-dd"/></td>
+                            <td><fmt:formatDate value="${user.endDate}" pattern="yyyy-MM-dd"/></td>
+                            <td>${user.total}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -84,14 +84,14 @@
                 <div class="pull-right">
                     <ul style="margin-top: 0;" class="pagination pull-right">
                         <li class="${pagination.hasPreviousPage()?'':'disabled'}"><a
-                                href="page=${pagination.previousPageNumber}">&laquo;</a></li>
+                                href="listuser/page=${pagination.previousPageNumber}">&laquo;</a></li>
                         <c:forEach var="p" items="${pagination.getPageables(pageable)}">
                             <%--<c:if test="${p.pageNumber eq pagination.currentPageNumber?'active':''}">--%>
-                            <li><a href="page=${p.pageNumber},size=${p.pageSize}">${p.pageNumber + 1}</a></li>
+                            <li><a href="listuser/page=${p.pageNumber},size=${p.pageSize}">${p.pageNumber + 1}</a></li>
                             <%--</c:if>--%>
                         </c:forEach>
                         <li class="${pagination.hasNextPage()?'':'disable'}"><a
-                                href="page=${pagination.nextPageNumber}">&raquo;</a></li>
+                                href="listuser/page=${pagination.nextPageNumber}">&raquo;</a></li>
                     </ul>
                 </div>
                 <!-- End Pagination -->
