@@ -218,7 +218,7 @@ public class PaginationTest extends TestCase {
 
         assertThat(6, is(pageableListActual.size()));
         assertThat(5, is(pageableListActual.get(0).getPageNumber() + 1));
-        assertThat(10, is(pageableListActual.get(9).getPageNumber() + 1));
+        assertThat(10, is(pageableListActual.get(5).getPageNumber() + 1));
 
     }
 }

@@ -84,14 +84,14 @@
                 <div class="pull-right">
                     <ul style="margin-top: 0;" class="pagination pull-right">
                         <li class="${pagination.hasPreviousPage()?'':'disabled'}"><a
-                                href="listuser/page=${pagination.previousPageNumber}">&laquo;</a></li>
+                                href="listuser?page=${pagination.previousPageNumber}">&laquo;</a></li>
                         <c:forEach var="p" items="${pagination.getPageables(pageable)}">
                             <%--<c:if test="${p.pageNumber eq pagination.currentPageNumber?'active':''}">--%>
-                            <li><a href="listuser/page=${p.pageNumber},size=${p.pageSize}">${p.pageNumber + 1}</a></li>
+                            <li><a href="listuser?page=${p.pageNumber},size=${p.pageSize}">${p.pageNumber + 1}</a></li>
                             <%--</c:if>--%>
                         </c:forEach>
                         <li class="${pagination.hasNextPage()?'':'disable'}"><a
-                                href="listuser/page=${pagination.nextPageNumber}">&raquo;</a></li>
+                                href="listuser?page=${pagination.nextPageNumber}">&raquo;</a></li>
                     </ul>
                 </div>
                 <!-- End Pagination -->

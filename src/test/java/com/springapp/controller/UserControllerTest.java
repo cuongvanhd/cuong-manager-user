@@ -1,5 +1,7 @@
 package com.springapp.controller;
 
+import com.springapp.command.UserInforCommand;
+import com.springapp.entities.User;
 import com.springapp.services.UserService;
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -14,6 +16,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.util.ArrayList;
 
 import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.verify;
@@ -54,10 +58,10 @@ public class UserControllerTest extends TestCase {
     @Test
     public void testShowListUser() throws Exception {
 
-        when(userService.getAllUserInfor(pageable)).thenReturn(anyList());
-        when(userService.getListUser()).thenReturn(anyList());
+        when(userService.getAllUserInfor(pageable)).thenReturn(new ArrayList<UserInforCommand>());
+        when(userService.getListUser()).thenReturn(new ArrayList<User>());
 
-        mockMvc.perform(get("/user/listuser").requestAttr("pageable", pageable))
+        mockMvc.perform(get("/user/listuser"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("users"))
                 .andExpect(model().attributeExists("pageable"))
@@ -65,5 +69,6 @@ public class UserControllerTest extends TestCase {
                 .andExpect(view().name("/user/listuser"));
 
         verify(userService).getAllUserInfor(pageable);
+        verify(userService).getListUser();
     }
 }
