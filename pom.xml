@@ -72,9 +72,9 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.springframework.javaconfig</groupId>-->
-            <!--<artifactId>spring-javaconfig</artifactId>-->
-            <!--<version>1.0.0.m3</version>-->
+        <!--<groupId>org.springframework.javaconfig</groupId>-->
+        <!--<artifactId>spring-javaconfig</artifactId>-->
+        <!--<version>1.0.0.m3</version>-->
         <!--</dependency>-->
 
         <!-- Hibernate-->
@@ -88,6 +88,18 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>4.2.0.CR2</version>
+        </dependency>
+
+        <!-- Hibernate Search -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search-orm</artifactId>
+            <version>5.5.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search-infinispan</artifactId>
+            <version>5.5.0.Final</version>
         </dependency>
 
         <dependency>
