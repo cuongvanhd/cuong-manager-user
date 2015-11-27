@@ -5,7 +5,6 @@ import com.springapp.dao.UserDao;
 import com.springapp.entities.User;
 import com.springapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,8 +43,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getListUser() {
-        return userDao.getListUser();
+    public int getSizeTotalUserInfor() {
+        return userDao.getSizeTotalUserInfor();
     }
 
 }

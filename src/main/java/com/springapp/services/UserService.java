@@ -37,10 +37,10 @@ public interface UserService {
     List<UserInforCommand> getAllUserInfor(Pageable pageable);
 
     /**
-     * get list User
+     * get size total user information
      *
-     * @return list user
+     * @return size total user infor
      */
-    List<User> getListUser();
+    int getSizeTotalUserInfor();
 
 }

@@ -4,8 +4,6 @@ import com.springapp.command.UserInforCommand;
 import com.springapp.dao.UserDao;
 import com.springapp.entities.User;
 import org.hibernate.Query;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -107,12 +105,19 @@ public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public List<User> getListUser() {
+    public int getSizeTotalUserInfor() {
+        List<UserInforCommand> userInforCommands = new ArrayList<UserInforCommand>();
         StringBuilder hql = new StringBuilder();
-        hql.append(" from User user ");
-        hql.append(" left join fetch user.mainGroup mainGroup ");
+
+        hql.append(" select u.userId, g.groupName, u.fullName, u.fullNameKata, u.email, u.tel, u.birthday, j.nameLevel, d.startDate, d.endDate, d.total ");
+        hql.append(" from UserDetailJapanese as d ");
+        hql.append(" inner join d.japanese j ");
+        hql.append(" right join d.user u  ");
+        hql.append(" inner join u.mainGroup g  ");
+        hql.append(" order by u.userId asc  ");
         Query query = getSession().createQuery(hql.toString());
-        return query.list();
+
+        return query.list().size();
     }
 
 }

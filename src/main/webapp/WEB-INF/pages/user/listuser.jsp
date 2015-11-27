@@ -20,7 +20,7 @@
 <div id="content">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h4>MANAGE USER INFORMATION</h4>
+            <h3>MANAGE USER INFORMATION</h3>
         </div>
         <div class="panel-body">
             <div class="table table-responsive ">
@@ -83,15 +83,43 @@
                 </div>
                 <div class="pull-right">
                     <ul style="margin-top: 0;" class="pagination pull-right">
-                        <li class="${pagination.hasPreviousPage()?'':'disabled'}"><a
-                                href="listuser?page=${pagination.previousPageNumber}">&laquo;</a></li>
+                        <!-- Display Previous Page -->
+                        <c:choose>
+                            <c:when test="${pagination.hasPreviousPage()}">
+                                <li><a href="listuser?page=${pagination.previousPageNumber}">&laquo;</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="disabled">
+                                    <a href="listuser?page=${pagination.previousPageNumber}">&laquo;</a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <!-- Display List Page -->
                         <c:forEach var="p" items="${pagination.getPageables(pageable)}">
-                            <%--<c:if test="${p.pageNumber eq pagination.currentPageNumber?'active':''}">--%>
-                            <li><a href="listuser?page=${p.pageNumber},size=${p.pageSize}">${p.pageNumber + 1}</a></li>
-                            <%--</c:if>--%>
+                            <c:choose>
+                                <c:when test="${p.pageNumber eq pagination.currentPageNumber}">
+                                    <li class="active"><a
+                                            href="listuser?page=${p.pageNumber}&size=${p.pageSize}">${p.pageNumber + 1}</a>
+                                    </li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li>
+                                        <a href="listuser?page=${p.pageNumber}&size=${p.pageSize}">${p.pageNumber + 1}</a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
-                        <li class="${pagination.hasNextPage()?'':'disable'}"><a
-                                href="listuser?page=${pagination.nextPageNumber}">&raquo;</a></li>
+
+                        <!-- Display Nexzt Page -->
+                        <c:choose>
+                            <c:when test="${pagination.hasNextPage()}">
+                                <li><a href="listuser?page=${pagination.nextPageNumber}">&raquo;</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="disabled"><a href="listuser?page=${pagination.nextPageNumber}">&raquo;</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </div>
                 <!-- End Pagination -->

@@ -28,7 +28,7 @@ public class UserController {
     @RequestMapping(value = "/listuser", method = RequestMethod.GET)
     public String showListUser(@PageableDefault(5) Pageable pageable, ModelMap model) {
 
-        int totalRecordUser = userService.getListUser().size();
+        int totalRecordUser = userService.getSizeTotalUserInfor();
         List<UserInforCommand> userInforCommands = userService.getAllUserInfor(pageable);
         Page<UserInforCommand> inforCommands = new PageImpl<UserInforCommand>(userInforCommands, pageable, totalRecordUser);
         Pagination<UserInforCommand> pagination = new Pagination<UserInforCommand>(inforCommands);

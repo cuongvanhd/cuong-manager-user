@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.ModelMap;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.ArrayList;
 
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -59,7 +61,7 @@ public class UserControllerTest extends TestCase {
     public void testShowListUser() throws Exception {
 
         when(userService.getAllUserInfor(pageable)).thenReturn(new ArrayList<UserInforCommand>());
-        when(userService.getListUser()).thenReturn(new ArrayList<User>());
+        when(userService.getSizeTotalUserInfor()).thenReturn(anyInt());
 
         mockMvc.perform(get("/user/listuser"))
                 .andExpect(status().isOk())
@@ -69,6 +71,6 @@ public class UserControllerTest extends TestCase {
                 .andExpect(view().name("/user/listuser"));
 
         verify(userService).getAllUserInfor(pageable);
-        verify(userService).getListUser();
+        verify(userService).getSizeTotalUserInfor();
     }
 }
